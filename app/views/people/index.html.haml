@@ -1,2 +1,24 @@
 .row
   .small-12.columns
+    .splash
+      = image_tag "http://#{ENV['CLOUDFRONT_URL']}/people-of-bart6.jpg"
+      %h1.center PEOPLE OF BART
+    %br
+    %br
+    %h2.center FEATURED
+    %br
+    %br
+    - @people.each do |person|
+      .small-12.medium-8.medium-centered.columns.center
+        = image_tag "http://#{ENV['CLOUDFRONT_URL']}/people-of-bart6.jpg", id: "#{person.id}"
+        %br
+        %br
+      .small-12.medium-8.medium-centered.columns
+        %p
+          = person.caption
+          %span.lt-gray - #{person.photo_cred}
+        .center
+          = link_to '', 'https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.people-of-bart.com&text=Check%20out%20these%20ridiculous%20BART%20riders%20at%20http%3A%2F%2Fwww.people-of-bart.com&tw_p=tweetbutton&url=%2F', class: 'symbol', title: 'circletwitterbird'
+          = link_to '', 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.people-of-bart.com', target: '_blank', class: 'symbol js-fb-share', title: 'circlefacebook'
+      %br
+      %br

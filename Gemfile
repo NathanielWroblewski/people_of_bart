@@ -5,6 +5,7 @@ gem 'rails', '4.0.3'
 gem 'pg'
 
 gem 'coffee-rails', '~> 4.0.0'
+gem 'figaro'
 gem 'foundation-rails'
 gem 'haml'
 gem 'haml_coffee_assets'
