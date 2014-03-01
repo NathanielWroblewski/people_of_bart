@@ -58,8 +58,9 @@ nav {
     color: #FCFAF8;
     position: absolute;
     width: 100%;
-    top: 40px;
+    top: 30px;
     left: 0;
+    font-size: rem-calc(72);
   }
 }
 
@@ -69,5 +70,11 @@ nav {
     font-size: 0.875rem;
     color: #4d4d4d;
     margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 40em) {
+  .splash h1 {
+    font-size: rem-calc(44);
   }
 }
