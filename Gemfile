@@ -16,12 +16,10 @@ gem 'paperclip'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'unicorn'
 
 group :doc do
   gem 'sdoc', require: false
 end
 
 gem 'rails_12factor', group: :production
-
-# Use unicorn as the app server
-# gem 'unicorn'
