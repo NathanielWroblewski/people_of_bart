@@ -1,15 +1,22 @@
-.row
+.row#share-page
   .small-12.columns
     %h2.center SHARE A STORY
   .small-12.medium-pull-4.medium-4.medium-centered.columns
     = form_for @person do |f|
-      = f.label :photo_cred, 'Photo Credit', class: 'error'
-      = f.text_field :photo_cred, class: 'error'
-      %small.error You must attribute the photo to someone
-      = f.label :caption, class: 'error'
-      = f.text_field :caption, class: 'error'
-      %small.error You must include a caption
-      = f.label :photo, class: 'error'
-      = f.file_field :photo, class: 'error'
-      %small.error You must upload a photo smaller than 5MB
+      = f.label :photo_cred, 'Photo Credit', class: form_error
+      = f.text_field :photo_cred, class: form_error
+      - if flash[:error]
+        %small.error You must attribute the photo to someone
+      = f.label :caption, class: form_error
+      = f.text_field :caption, class: form_error
+      - if flash[:error]
+        %small.error You must include a caption
+      = f.label :photo, class: form_error
+      = f.file_field :photo, class: form_error
+      - if flash[:error]
+        %small.error You must upload a photo smaller than 5MB
+      .checkbox
+        %p
+          This person is a line cutter!
+          = f.check_box :line_cutter, value: true
       = f.submit 'Share', class: 'radius button'

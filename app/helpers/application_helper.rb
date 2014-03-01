@@ -16,4 +16,8 @@ module ApplicationHelper
     url.gsub("s3.amazonaws.com/#{ENV['S3_BUCKET']}", "#{ENV['CLOUDFRONT_URL']}")
   end
 
+  def form_error
+    'error' if flash[:error]
+  end
+
 end

@@ -7,4 +7,20 @@ class Person < ActiveRecord::Base
 
   validates :photo_cred, presence: true
   validates :caption, presence: true
+
+  def self.approved
+    where(status: :approved)
+  end
+
+  def self.line_cutters
+    where(line_cutter: true)
+  end
+
+  def self.non_line_cutters
+    where(line_cutter: false)
+  end
+
+  def approve
+    update_attributes(status: :approved)
+  end
 end
