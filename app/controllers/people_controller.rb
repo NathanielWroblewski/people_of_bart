@@ -24,7 +24,7 @@ class PeopleController < ApplicationController
   end
 
   def edit
-    redirect_to root_path unless params[:admin] = ENV['ADMIN_KEY']
+    redirect_to root_path unless params[:admin] == ENV['ADMIN_KEY']
   end
 
   def update
