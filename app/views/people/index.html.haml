@@ -10,7 +10,7 @@
     %br
     - @people.each do |person|
       .small-12.medium-8.medium-centered.columns.center
-        = image_tag "http://#{ENV['CLOUDFRONT_URL']}/people-of-bart6.jpg", id: "#{person.id}"
+        = image_tag cloudfront(person.photo.url)
         %br
         %br
       .small-12.medium-8.medium-centered.columns

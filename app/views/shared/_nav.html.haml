@@ -2,5 +2,5 @@
   .small-12.columns
     %nav
       = link_to 'HOME', root_path, class: "#{ 'active' if home? }"
-      = link_to 'SHARE', '#', class: "#{ 'active' if share? }"
+      = link_to 'SHARE', new_person_path, class: "#{ 'active' if share? }"
       = link_to 'WALL OF SHAME', '#', class: "#{ 'active' if shame? }"

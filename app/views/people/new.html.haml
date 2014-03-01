@@ -1,0 +1,15 @@
+.row
+  .small-12.columns
+    %h2.center SHARE A STORY
+  .small-12.medium-pull-4.medium-4.medium-centered.columns
+    = form_for @person do |f|
+      = f.label :photo_cred, 'Photo Credit', class: 'error'
+      = f.text_field :photo_cred, class: 'error'
+      %small.error You must attribute the photo to someone
+      = f.label :caption, class: 'error'
+      = f.text_field :caption, class: 'error'
+      %small.error You must include a caption
+      = f.label :photo, class: 'error'
+      = f.file_field :photo, class: 'error'
+      %small.error You must upload a photo smaller than 5MB
+      = f.submit 'Share', class: 'radius button'
