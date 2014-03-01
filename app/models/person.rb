@@ -12,6 +12,10 @@ class Person < ActiveRecord::Base
     where(status: :approved)
   end
 
+  def self.pending
+    where(status: :pending)
+  end
+
   def self.line_cutters
     where(line_cutter: true)
   end

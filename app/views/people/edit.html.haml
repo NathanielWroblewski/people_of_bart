@@ -1,0 +1,7 @@
+.row
+  .small-12.columns
+    %h2 EDIT
+    - @people.each do |person|
+      = image_tag cloudfront(person.photo.url)
+      = link_to 'Approve', person, method: :patch
+      = link_to 'Delete', person, method: :delete

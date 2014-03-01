@@ -1,6 +1,21 @@
 .row
   .small-12.columns.center
     %h2 LINE CUTTERS
-  - @people.each do |person|
-    .small-12.medium-3.columns.end
-      = image_tag cloudfront(person.photo.url)
+    - if @people.any?
+      - @people.each do |person|
+        .small-12.medium-3.columns.end
+          = image_tag cloudfront(person.photo.url)
+          %br
+          %br
+    - else
+      %p
+        No line cutters uploaded yet.
+        = link_to 'Upload one.', new_person_path
+      %br
+      %br
+.row
+  .small-12.columns.center
+    %br
+    %br
+    = link_to '', 'https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.people-of-bart.com&text=Check%20out%20these%20ridiculous%20BART%20riders%20at%20http%3A%2F%2Fwww.people-of-bart.com&tw_p=tweetbutton&url=%2F', class: 'symbol', title: 'circletwitterbird'
+    = link_to '', 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.people-of-bart.com', target: '_blank', class: 'symbol js-fb-share', title: 'circlefacebook'

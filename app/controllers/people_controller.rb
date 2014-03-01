@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  before_filter :fetch_pending, only: [:edit, :update, :destroy]
 
   def index
     @selected = :home
@@ -22,6 +23,22 @@ class PeopleController < ApplicationController
     end
   end
 
+  def edit
+    redirect_to root_path unless params[:admin] = ENV['ADMIN_KEY']
+  end
+
+  def update
+    person = Person.find(params[:id])
+    person.approve
+    render :edit
+  end
+
+  def destroy
+    person = Person.find(params[:id])
+    person.destroy
+    render :edit
+  end
+
   def wall_of_shame
     @selected = :shame
     @people = Person.approved.line_cutters.order(created_at: :desc)
@@ -31,6 +48,10 @@ class PeopleController < ApplicationController
 
   def person_params
     params.require(:person).permit(:photo_cred, :caption, :photo, :line_cutter)
+  end
+
+  def fetch_pending
+    @people = Person.pending
   end
 
 end
