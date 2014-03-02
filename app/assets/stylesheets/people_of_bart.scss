@@ -73,6 +73,13 @@ nav {
   }
 }
 
+.person-of-bart {
+  height: 100%;
+  width: 100%;
+  max-height: 517px;
+  max-width: 617px;
+}
+
 @media only screen and (max-width: 40em) {
   .splash h1 {
     font-size: rem-calc(44);

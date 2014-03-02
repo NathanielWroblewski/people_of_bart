@@ -11,7 +11,7 @@
     - if @people.any?
       - @people.each do |person|
         .small-12.medium-8.medium-centered.columns.center
-          = image_tag cloudfront(person.photo.url)
+          = image_tag cloudfront(person.photo.url), class: 'person-of-bart'
           %br
           %br
         .small-12.medium-8.medium-centered.columns
